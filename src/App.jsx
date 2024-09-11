@@ -22,7 +22,7 @@ function App() {
     <>
     <div>
       {/* Introduction section */}
-      <div class='mt-[15%] p-8 md:max-w-xl lg:max-w-[70%] lg:mt-[7%]'>
+      <div class='p-8 md:max-w-xl lg:max-w-[70%] lg:mt-[7%]'>
         <h2 class='text-[#9DBDF8] mt-16 text-6xl'>Hi There, </h2>
         <h5 class='text-3xl font-bold mt-16 animate-fadeUp'>I am Gbadamosi Farouk</h5>
         <p class='text-2xl font-normal leading-relaxed mt-8 animate-fadeUp'>
@@ -51,7 +51,7 @@ function App() {
                 'flex items-center gap-x-4 text-xl md:text-2xl font-normal leading-relaxed mt-8 animate-fadeUp':
                 'flex items-center gap-x-4 text-xl md:text-2xl font-normal leading-relaxed mt-8 opacity-0'
                 }>
-                <svg class="w-12 h-12 text-green-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-12 h-12 text-green-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  fill="currentColor" viewBox="0 0 24 24">
                   <path fillRule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
                 </svg>
                 <p>
@@ -66,7 +66,7 @@ function App() {
                 'flex items-center gap-x-4 text-xl md:text-2xl font-normal leading-relaxed mt-4 animate-fadeUp':
                 'flex items-center gap-x-4 text-xl md:text-2xl font-normal leading-relaxed mt-4 opacity-0'
                 }>
-                <svg class="w-16 h-16 text-green-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  fill="currentColor" viewBox="0 0 24 24">
+                <svg class="w-16 h-16 text-green-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"  fill="currentColor" viewBox="0 0 24 24">
                   <path fillRule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
                 </svg>
                 <p>
@@ -165,17 +165,17 @@ function App() {
           <div class="flex items-center gap-x-6 sm:space-x-0 xl:space-x-0 2xl:space-x-4">
               <img class="mb-4 rounded-lg w-28 h-28 sm:mb-0 xl:mb-4 2xl:mb-0" src={profileImg} alt="Gbadamosi Farouk"/>
               <div>
-                  <h3 class="mb-1 text-xl font-bold text-gray-900 dark:text-white">Contact</h3>
-                  <div class="mb-4 text-sm text-gray-500 dark:text-gray-400">
+                  <h3 class="mb-1 text-xl font-bold text-gray-900">Contact</h3>
+                  <div class="mb-4 text-sm text-gray-500">
                       fgbadamosi@ymail.com 
                   </div>
                   <div class="flex items-center space-x-4">
                     <a href="https://www.linkedin.com/in/farouk-gbadamosi/" target="_blank" rel="noopener noreferrer">
-                      <button type="button" class="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                      <button type="button" class="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">
                           LinkedIn
                       </button>
                     </a>
-                      {/* <button type="button" class="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                      {/* <button type="button" class="py-2 px-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200">
                           Substack
                       </button> */}
                   </div>
