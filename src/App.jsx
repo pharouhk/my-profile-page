@@ -24,8 +24,8 @@ function App() {
       {/* Introduction section */}
       <div class='p-8 md:max-w-xl lg:max-w-[70%] lg:mt-[7%]'>
         <h2 class='text-[#9DBDF8] mt-16 text-6xl'>Hi There, </h2>
-        <h5 class='text-3xl font-bold mt-16 animate-fadeUp'>I am Gbadamosi Farouk</h5>
-        <p class='text-2xl font-normal leading-relaxed mt-8 animate-fadeUp'>
+        <h5 class='text-3xl font-bold mt-12 animate-fadeUp'>I am Gbadamosi Farouk</h5>
+        <p class='text-xl sm:text-2xl font-normal leading-relaxed mt-8 animate-fadeUp'>
           A full-stack data solutions developer,  with over 6 years of relevant experience building real-time monitoring platforms, smart root-cause alerting solutions, and self-service business analytics products. 
           I love leveraging the most compelling visuals for faster decision making and for breaking down concepts to business users of all types.
         </p>
@@ -41,7 +41,7 @@ function App() {
               'text-2xl md:text-3xl font-bold animate-fadeLeft':
               'text-2xl md:text-3xl font-bold opacity-0'
               }>
-                Over the past 2 years…
+                Over the past few years…
               </h5>
             </InView>
             <InView as="div" onChange={(inView, entry) => setInViewState(inView)} triggerOnce={true} threshold={0.2}>
@@ -55,7 +55,7 @@ function App() {
                   <path fillRule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
                 </svg>
                 <p>
-                  I have led a high performing team of data engineers, data analysts and back-end developers.
+                  I have led high performing teams of data engineers, data analysts and back-end developers.
                 </p>
               </div>
             </InView>
@@ -70,7 +70,7 @@ function App() {
                   <path fillRule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
                 </svg>
                 <p>
-                  I have saved my organizations over <b>$200K</b> anually through cost reduction, and reduction in revenue leakages from app unreliability.
+                  I have saved organizations over <b>$200K</b> yearly through cost reduction, and reduction in revenue leakages from app unreliability.
                 </p>
               </div>
             </InView>
