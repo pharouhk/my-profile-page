@@ -146,7 +146,7 @@ function App() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-primary-900 mb-2">Cost Savings & Reliability</h3>
-                      <p className="text-primary-600">Replaced third-party solutions with in-house production-grade software solutions that achieved <span className="font-semibold text-accent-600">99.9% uptime</span> and sub-15 second response times across enterprise platforms and saved $100K annually in the process.</p>
+                      <p className="text-primary-600">Replaced third-party solutions with in-house production-grade software solutions that achieved <span className="font-semibold text-accent-600">99.9% uptime</span> and sub-15 second response times across enterprise platforms and saved <span className="font-semibold text-accent-600">$100K annually</span> in the process.</p>
                     </div>
                   </div>
                 </InView>
