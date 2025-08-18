@@ -7,6 +7,51 @@ import pageGraphics from './assets/pie.png';
 import { InView, useInView  } from "react-intersection-observer";
 import { useState, useEffect } from 'react';
 
+const SkillsCarousel = () => {
+  const skills = [
+    "Python", "React", "JavaScript", "FastAPI", "Open Telemetry", "Grafana", "Prometheus", "Tempo", "SRE"
+  ];
+
+  // Duplicate skills for seamless infinite loop
+  const duplicatedSkills = [...skills, ...skills];
+
+  return (
+    <div className="dark-carousel py-20 relative">
+      {/* Matrix background effect */}
+      <div className="matrix-bg"></div>
+      
+      {/* Header */}
+      <div className="max-w-6xl mx-auto px-6 mb-12 relative z-10">
+        <div className="text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Technical Arsenal
+            </span>
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+      </div>
+
+      {/* Animated Skills Track */}
+      <div className="relative">
+        <div className="carousel-track">
+          {duplicatedSkills.map((skill, index) => (
+            <div key={index} className="skill-pill">
+              <div className="skill-text">
+                {skill}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Gradient overlays for fade effect */}
+      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
+    </div>
+  );
+};
+
 const GlitchTerminal = () => {
   const [currentLine, setCurrentLine] = useState(0);
   
@@ -197,6 +242,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Skills Carousel section */}
+      <SkillsCarousel />
 
       {/* Projects section */}
       <section id="work" className="py-20 px-6 bg-primary-50">

@@ -75,6 +75,18 @@ export default {
           '4%': { transform: 'translate(1px, 0)' },
           '6%': { transform: 'translate(0)' },
           '98%': { transform: 'translate(0)' }
+        },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(calc(-250px * 8))' }
+        },
+        infiniteScroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }
+        },
+        matrixMove: {
+          '0%': { transform: 'translateX(-100px)' },
+          '100%': { transform: 'translateX(100px)' }
         }
       },
       animation: {
