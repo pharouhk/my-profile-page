@@ -1,9 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
+@layer base {
   body {
-    background-color: #F3F4F6;
+    @apply bg-gradient-to-br from-slate-50 to-slate-100 font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent;
+  }
+  
+  .accent-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+  }
+  
+  .glass-morphism {
+    @apply backdrop-blur-sm bg-white/70 border border-white/20;
+  }
+  
+  .glitch-container {
+    @apply relative bg-gray-900 p-8 rounded-lg overflow-hidden;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .glitch-text {
+    @apply text-green-400 text-sm leading-relaxed relative;
+    animation: textGlitch 0.1s infinite linear alternate-reverse;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .glitch-text::before {
+    animation: glitchTop 2s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    color: #ff0040;
+  }
+  
+  .glitch-text::after {
+    animation: glitchBotom 2.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    color: #00ffff;
   }
 }
