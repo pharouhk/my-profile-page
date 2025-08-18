@@ -12,7 +12,36 @@ const SkillsCarousel = () => {
     "Python", "React", "JavaScript", "FastAPI", "Open Telemetry", "Grafana", "Prometheus", "Tempo", "SRE"
   ];
 
-  // Duplicate skills for seamless infinite loop
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % skills.length);
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, skills.length]);
+
+  const nextSlide = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prev) => (prev + 1) % skills.length);
+  };
+
+  const prevSlide = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prev) => (prev - 1 + skills.length) % skills.length);
+  };
+
+  const goToSlide = (index) => {
+    setIsAutoPlaying(false);
+    setCurrentIndex(index);
+  };
+
+  // Duplicate skills for seamless infinite loop on desktop
   const duplicatedSkills = [...skills, ...skills];
 
   return (
@@ -32,8 +61,8 @@ const SkillsCarousel = () => {
         </div>
       </div>
 
-      {/* Animated Skills Track */}
-      <div className="relative">
+      {/* Large Desktop: Animated Skills Track */}
+      <div className="relative hidden xl:block">
         <div className="carousel-track">
           {duplicatedSkills.map((skill, index) => (
             <div key={index} className="skill-pill">
@@ -43,11 +72,171 @@ const SkillsCarousel = () => {
             </div>
           ))}
         </div>
+        
+        {/* Gradient overlays for fade effect */}
+        <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
       </div>
-      
-      {/* Gradient overlays for fade effect */}
-      <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
+
+      {/* Mobile/Tablet/Small Desktop: Interactive Slider */}
+      <div className="xl:hidden">
+        
+        {/* Mobile: Single skill slider */}
+        <div className="md:hidden px-6">
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button 
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-gray-800/80 border border-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-blue-400 hover:border-blue-500 transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button 
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-gray-800/80 border border-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-blue-400 hover:border-blue-500 transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Mobile: Single Skills Display */}
+            <div className="overflow-hidden mx-12">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {skills.map((skill, index) => (
+                  <div 
+                    key={index} 
+                    className="skill-pill w-full flex-shrink-0 text-center"
+                  >
+                    <div className="skill-text text-lg">
+                      {skill}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tablet: Show 3 skills at once */}
+        <div className="hidden md:block lg:hidden px-6">
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button 
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-gray-800/80 border border-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-blue-400 hover:border-blue-500 transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button 
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-gray-800/80 border border-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-blue-400 hover:border-blue-500 transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Tablet: 3 Skills Display */}
+            <div className="overflow-hidden mx-12">
+              <div 
+                className="flex gap-4 transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}
+              >
+                {skills.map((skill, index) => (
+                  <div 
+                    key={index} 
+                    className="skill-pill flex-shrink-0 text-center"
+                    style={{ minWidth: 'calc(33.33% - 11px)' }}
+                  >
+                    <div className="skill-text">
+                      {skill}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Small Desktop: Show 4 skills at once */}
+        <div className="hidden lg:block px-6">
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button 
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-gray-800/80 border border-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-blue-400 hover:border-blue-500 transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button 
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-gray-800/80 border border-gray-600 rounded-full flex items-center justify-center text-gray-300 hover:text-blue-400 hover:border-blue-500 transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Small Desktop: 4 Skills Display */}
+            <div className="overflow-hidden mx-12">
+              <div 
+                className="flex gap-4 transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentIndex * 25}%)` }}
+              >
+                {skills.map((skill, index) => (
+                  <div 
+                    key={index} 
+                    className="skill-pill flex-shrink-0 text-center"
+                    style={{ minWidth: 'calc(25% - 12px)' }}
+                  >
+                    <div className="skill-text">
+                      {skill}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Dots Indicator */}
+        <div className="flex justify-center mt-6 gap-2">
+          {skills.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? 'bg-blue-500 w-6'
+                  : 'bg-gray-600 hover:bg-gray-500'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Auto-play indicator */}
+        <div className="text-center mt-4">
+          <button
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="text-xs text-gray-500 hover:text-blue-400 transition-colors duration-300"
+          >
+            {isAutoPlaying ? '⏸️ Pause' : '▶️ Play'} Auto-scroll
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

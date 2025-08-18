@@ -31,6 +31,8 @@
   .glitch-container {
     @apply relative bg-gray-900 p-8 rounded-lg overflow-hidden;
     font-family: 'Courier New', monospace;
+    height: 320px;
+    min-height: 320px;
   }
   
   .glitch-text {
